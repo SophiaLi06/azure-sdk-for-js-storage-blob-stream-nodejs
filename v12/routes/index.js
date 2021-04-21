@@ -53,12 +53,15 @@ router.get('/', async (req, res, next) => {
       title: 'Home',
       viewName: 'index',
       accountName: process.env.AZURE_STORAGE_ACCOUNT_NAME,
-      containerName: containerName1
+      containerName: containerName1,
+      metadata: []
     };
 
     if (listBlobsResponse.segment.blobItems.length) {
       viewData.thumbnails = listBlobsResponse.segment.blobItems;
+      viewData.length = listBlobsResponse.segment.blobItems.length;
     }
+
   } catch (err) {
     viewData = {
       title: 'Error',
