@@ -12,13 +12,13 @@
 <h2>Uploaded Frames</h2>
 {{#each this.thumbnails}}
   <img src="https://{{../accountName}}.blob.core.windows.net/{{../containerName}}/{{name}}" width="500">
-  <p>access length: {{this.length}}</p>
+  <p>{{this.metadata}}</p>
 {{/each}}
 
 <hr>
 <p>This app has no official privacy policy.</p>
 
-<script src="../routes/index.js">
+{{!-- <script src="../routes/index.js">
   document.addEventListener('DOMContentLoaded', async() => {
     {{!-- const {
       BlobServiceClient,
@@ -39,7 +39,7 @@
     {{!-- var gallery = document.getElementById("upload_frames");
     for  --}}
   });
-</script>
+</script> --}}
 
 {{!-- <script>
   document.addEventListener('DOMContentLoaded', () => {
