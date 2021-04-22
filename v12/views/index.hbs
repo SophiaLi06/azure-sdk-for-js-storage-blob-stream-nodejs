@@ -12,7 +12,9 @@
 <h2>Uploaded Frames</h2>
 {{#each this.thumbnails}}
   <img src="https://{{../accountName}}.blob.core.windows.net/{{../containerName}}/{{name}}" width="500">
-  <p>{{this.metadata}}</p>
+  {{#each ../metadata}}
+    <p>{{this}}</p>
+  {{/each}}
 {{/each}}
 
 <hr>
