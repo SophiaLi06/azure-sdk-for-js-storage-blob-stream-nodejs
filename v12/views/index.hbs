@@ -18,9 +18,9 @@
 <hr>
 <p>This app has no official privacy policy.</p>
 
-<script>
+<script src="../routes/index.js">
   document.addEventListener('DOMContentLoaded', async() => {
-    const {
+    {{!-- const {
       BlobServiceClient,
       StorageSharedKeyCredential,
       newPipeline
@@ -29,7 +29,7 @@
     const containerName1 = 'thumbnails';
 
     const containerClient = blobServiceClient.getContainerClient(containerName1);
-    const listBlobsResponse = await containerClient.listBlobFlatSegment();
+    const listBlobsResponse = await containerClient.listBlobFlatSegment(); --}}
 
     for await (const blob of listBlobsResponse.segment.blobItems) {
       console.log(`Blob: ${blob.name}`);
