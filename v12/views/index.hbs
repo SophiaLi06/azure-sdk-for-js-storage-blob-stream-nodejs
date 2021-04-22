@@ -12,7 +12,7 @@
 <h2>Uploaded Frames</h2>
 {{#each this.frames}}
   <img src="https://{{../accountName}}.blob.core.windows.net/{{../containerName}}/{{this.0.name}}" width="500">
-  {{!-- <p>{{this.1}}</p> --}}
+  <p>{{this.[1]}}</p>
 {{/each}}
 
 <hr>
