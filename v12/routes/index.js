@@ -54,13 +54,12 @@ router.get('/', async (req, res, next) => {
       viewName: 'index',
       accountName: process.env.AZURE_STORAGE_ACCOUNT_NAME,
       containerName: containerName1,
-      metadata: []
+      frames: []
     };
 
     if (listBlobsResponse.segment.blobItems.length) {
-      viewData.thumbnails = listBlobsResponse.segment.blobItems;
       for await (const blob of listBlobsResponse.segment.blobItems) {
-        viewData.metadata.push(`Blob: ${blob}`);
+        viewData.frames.push([blob, `Blob: ${blob.metadata["timestamp"]}`]);
       }
     }
 
