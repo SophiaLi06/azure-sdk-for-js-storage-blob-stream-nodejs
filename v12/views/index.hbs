@@ -19,27 +19,29 @@
 <p>This app has no official privacy policy.</p>
 
 <script>
+  const {
+    BlobServiceClient,
+    StorageSharedKeyCredential,
+    newPipeline
+  } = require('@azure/storage-blob');
+
+  const containerName1 = 'thumbnails';
+
+  const containerClient = blobServiceClient.getContainerClient(containerName1);
+  const listBlobsResponse = await containerClient.listBlobFlatSegment();
+
+  for await (const blob of listBlobsResponse.segment.blobItems) {
+    console.log(`Blob: ${blob.name}`);
+    console.log(`${blob.metadata}`);
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
-    const {
-      BlobServiceClient,
-      StorageSharedKeyCredential,
-      newPipeline
-    } = require('@azure/storage-blob');
-
-    const containerName1 = 'thumbnails';
-
-    const containerClient = blobServiceClient.getContainerClient(containerName1);
-    const listBlobsResponse = await containerClient.listBlobFlatSegment();
-
-    for await (const blob of listBlobsResponse.segment.blobItems) {
-      console.log(`Blob: ${blob.name}`);
-      console.log(`${blob.metadata}`);
-    }
+    
 
     {{!-- var gallery = document.getElementById("upload_frames");
     for  --}}
   });
-  console.log(viewData.thumbnails);
+  
 </script>
 
 {{!-- <script>
