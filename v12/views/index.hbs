@@ -19,11 +19,23 @@
 <p>This app has no official privacy policy.</p>
 
 <script>
+  {{!-- const {
+    BlobServiceClient,
+    StorageSharedKeyCredential,
+    newPipeline
+  } = require('@azure/storage-blob');
+
+  const containerName1 = 'thumbnails';
+
+  const containerClient = blobServiceClient.getContainerClient(containerName1);
+  const listBlobsResponse = await containerClient.listBlobFlatSegment(); --}}
+
+
   {{!-- document.addEventListener('DOMContentLoaded', () => {
     var gallery = document.getElementById("upload_frames");
     for 
   }); --}}
-  console.log(this.thumbnails);
+  console.log(viewData.thumbnails);
 </script>
 
 {{!-- <script>
