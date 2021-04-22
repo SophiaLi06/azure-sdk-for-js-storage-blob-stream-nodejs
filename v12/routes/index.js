@@ -60,7 +60,7 @@ router.get('/', async (req, res, next) => {
     if (listBlobsResponse.segment.blobItems.length) {
       viewData.thumbnails = listBlobsResponse.segment.blobItems;
       for await (const blob of listBlobsResponse.segment.blobItems) {
-        metadata.push(`Blob: ${blob}`);
+        viewData.metadata.push(`Blob: ${blob}`);
       }
     }
 
