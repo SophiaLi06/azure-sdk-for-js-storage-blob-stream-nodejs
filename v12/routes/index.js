@@ -59,7 +59,7 @@ router.get('/', async (req, res, next) => {
 
     if (listBlobsResponse.segment.blobItems.length) {
       for await (const blob of listBlobsResponse.segment.blobItems) {
-        viewData.frames.push([blob, `Blob: ${blob.metadata["timestamp"]}`]);
+        viewData.frames.push([blob, `Blob: ${blob.metadata}`]);
       }
     }
 
