@@ -59,7 +59,9 @@ router.get('/', async (req, res, next) => {
 
     if (listBlobsResponse.segment.blobItems.length) {
       for await (const blob of listBlobsResponse.segment.blobItems) {
-        viewData.frames.push([blob, `Blob: ${blob.metadata}`]);
+        const blobClient = containerClient.getBlobClient(blob.name);
+        properties = await blobClient.getProperties();
+        viewData.frames.push([blob, properties.metadata]);
       }
     }
 
