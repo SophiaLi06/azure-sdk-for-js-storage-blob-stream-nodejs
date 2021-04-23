@@ -61,7 +61,7 @@ router.get('/', async (req, res, next) => {
       for await (const blob of listBlobsResponse.segment.blobItems) {
         const blobClient = containerClient.getBlobClient(blob.name);
         properties = await blobClient.getProperties();
-        viewData.frames.push([blob, properties.metadata]);
+        viewData.frames.push([blob, properties.metadata["timestamp"]]);
       }
     }
 
