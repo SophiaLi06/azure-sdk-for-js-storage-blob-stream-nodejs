@@ -61,7 +61,10 @@ router.get('/', async (req, res, next) => {
       for await (const blob of listBlobsResponse.segment.blobItems) {
         const blobClient = containerClient.getBlobClient(blob.name);
         properties = await blobClient.getProperties();
-        viewData.frames.push([blob, properties.metadata["timestamp"]]);
+        // add to the front of the array, so that most recent file appears first
+        // TODO: do we want to set a display upper limit?
+        viewData.frames.unshift([blob, properties.metadata["timestamp"]]);
+        
       }
     }
 
