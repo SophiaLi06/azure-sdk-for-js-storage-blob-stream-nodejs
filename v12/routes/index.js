@@ -63,7 +63,8 @@ router.get('/', async (req, res, next) => {
         properties = await blobClient.getProperties();
         // add to the front of the array, so that most recent file appears first
         // TODO: do we want to set a display upper limit?
-        viewData.frames.unshift([blob, properties.metadata["timestamp"]]);
+        viewData.frames.unshift([blob, properties.metadata["timestamp"],
+         properties.metadata["animal_id"], properties.metadata["tag_id"], properties.metadata["sort_reason"]]);
         
       }
     }
