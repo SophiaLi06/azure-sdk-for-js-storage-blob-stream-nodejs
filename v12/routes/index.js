@@ -58,13 +58,16 @@ router.get('/', async (req, res, next) => {
     };
 
     if (listBlobsResponse.segment.blobItems.length) {
-      for await (const blob of listBlobsResponse.segment.blobItems) {
+      var frames_counter = 0;
+      for await (const blob of listBlobsResponse.segment.blobItems.reverse()) {
+        // TODO: what do we want as a display upper limit?
+        if (frames_counter >= 5) { break; }
         const blobClient = containerClient.getBlobClient(blob.name);
         properties = await blobClient.getProperties();
-        // add to the front of the array, so that most recent file appears first
-        // TODO: do we want to set a display upper limit?
-        viewData.frames.unshift([blob, properties.metadata["timestamp"],
+        // add to the end of the array, so that most recent file appears first
+        viewData.frames.push([blob, properties.metadata["timestamp"],
          properties.metadata["animal_id"], properties.metadata["tag_id"], properties.metadata["sort_reason"]]);
+        frames_counter = frames_counter + 1;
         
       }
     }
