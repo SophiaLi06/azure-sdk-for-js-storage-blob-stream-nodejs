@@ -11,13 +11,13 @@
 
 <h1>Uploaded Frames</h1>
 {{#each this.frames}}
-  <div id="frame_info">
+  <div class="frame_info">
 
-    <div id="image_div">
+    <div class="image_div">
       <img src="https://{{../accountName}}.blob.core.windows.net/{{../containerName}}/{{this.0.name}}" width="500">
     </div>
 
-    <div id="info_div">
+    <div class="info_div">
       {{#if this.[1]}}
       <p>Upload Timestamp: {{this.[1]}}</p>
       {{/if}}

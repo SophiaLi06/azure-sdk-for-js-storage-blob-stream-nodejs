@@ -14,12 +14,12 @@ a {
   margin-bottom: 10px
 }
 
-#image_div {
+.image_div {
   float: left;
   width: 50%;
 }
 
-#info_div {
+.info_div {
   float: right;
   width: 50%;
 }
