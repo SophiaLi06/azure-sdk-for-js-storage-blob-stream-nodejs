@@ -11,19 +11,28 @@
 
 <h1>Uploaded Frames</h1>
 {{#each this.frames}}
-  <img src="https://{{../accountName}}.blob.core.windows.net/{{../containerName}}/{{this.0.name}}" width="500">
-  {{#if this.[1]}}
-  <p>Upload Timestamp: {{this.[1]}}</p>
-  {{/if}}
-  {{#if this.[2]}}
-  <p>Animal ID: {{this.[2]}}</p>
-  {{/if}}
-  {{#if this.[3]}}
-  <p>Tag ID: {{this.[3]}}</p>
-  {{/if}}
-  {{#if this.[4]}}
-  <p>Sort Reason: {{this.[4]}}</p>
-  {{/if}}
+  <div id="frame_info">
+
+    <div id="image_div">
+      <img src="https://{{../accountName}}.blob.core.windows.net/{{../containerName}}/{{this.0.name}}" width="500">
+    </div>
+
+    <div id="info_div">
+      {{#if this.[1]}}
+      <p>Upload Timestamp: {{this.[1]}}</p>
+      {{/if}}
+      {{#if this.[2]}}
+      <p>Animal ID: {{this.[2]}}</p>
+      {{/if}}
+      {{#if this.[3]}}
+      <p>Tag ID: {{this.[3]}}</p>
+      {{/if}}
+      {{#if this.[4]}}
+      <p>Sort Reason: {{this.[4]}}</p>
+      {{/if}}
+    </div>
+
+  </div>
 {{/each}}
 
 <hr>
