@@ -13,3 +13,13 @@ a {
   max-width: fit-content;
   margin-bottom: 10px
 }
+
+.image_div {
+  float: left;
+  width: 50%;
+}
+
+.info_div {
+  float: right;
+  width: 50%;
+}
